@@ -1,0 +1,64 @@
+.fixed { 
+    position: fixed;
+}
+
+.sidebar-top {
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* all links */
+.sidebar-top .nav>li>a {
+    color: #999;
+    padding: 4px 20px;
+    font-size: 13px;
+    font-weight: 400;
+    border-left: 2px solid transparent;
+}
+
+/* active & hover links */
+.sidebar-top .nav>.active>a,
+.sidebar-top .nave>li>a:hover,
+.sidebar-top .nav>li>a:focus {
+    color: #563d7c;
+    text-decoration: none;          
+    background-color: transparent;
+    border-left: 2px solid #563d7c;
+}
+
+/* all active links */
+.bs-docs-sidebar .nav>.active>a, 
+.bs-docs-sidebar .nav>.active:hover>a,
+.bs-docs-sidebar .nav>.active:focus>a {
+    font-weight: 700;
+}
+/* nested active links */
+.bs-docs-sidebar .nav .nav>.active>a, 
+.bs-docs-sidebar .nav .nav>.active:hover>a,
+.bs-docs-sidebar .nav .nav>.active:focus>a {
+    font-weight: 500;
+}
+
+/* nested links */
+.sidebar-top .nav .nav>li>a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+}
+
+/* hide all (inactive) nested list */
+.bs-docs-sidebar .nav ul.nav {
+    display: none;           
+}
+/* show active nested list */
+.bs-docs-sidebar .nav>.active>ul.nav {
+    display: block;           
+}
+
+/*.group, .subgroup {
+    padding-top: 50px;
+    margin-top: -50px;
+}*/
+

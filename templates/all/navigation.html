@@ -1,0 +1,25 @@
+{% load staticfiles %}
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                <img src="{% static "img/logocolor.png" %}" class="logo" />
+                <strong>Distinct</strong> Engineering Solutions, Inc.
+            </a>
+        </div>  
+        <ul class="nav navbar-nav">
+            <li {% if "/" == request.path %} class="active" {% endif %}><a href="{% url "home" %}">Home</a></li>
+            <li><a href="">About Us</a></li>
+            <li {% if "projects" in request.path %} class="active" {% endif %} ><a href="{% url "projects:index" %}">Projects</a></li>
+            <li {% if "qualifications" in request.path %} class="active" {% endif %}><a href="{% url "qualifications:index" %}">Qualifications</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Clients</a></li>
+            <li><a href="">Careers</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+        <form class="navbar-right" action="{% url "admin:index" %}">
+            <button type="submit" class="btn btn-default navbar-btn">Sign In</button>
+        </form>
+    </div>
+</nav>

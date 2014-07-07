@@ -1,0 +1,31 @@
+{% extends "projects/project_base.html" %}
+{% load staticfiles %}
+
+{% block title %}Projects{% endblock %}
+
+
+{% block content %}
+<div class="row">
+    {% include "projects/project_sidebar.html" with project_categories=project_categories %}
+    <div class="col-md-9">
+    {% if project_categories %}
+        {% for category in project_categories %}
+            <section id="Cat{{ category.id }}" class="group">
+                <h2>{{ category.name }}</h2>
+                {% for project in category.projects %}
+                <div class="row subgroup preview" id="Proj{{ project.id }}">
+                    {% include "projects/project_preview.html" with project=project %}
+                </div>
+                {% endfor %}
+            </section>
+        {% endfor %}
+    {% else %}
+        <p>No Project Categories Exist</p>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block bodyjavascript %}
+    <script src="{% static "js/project_index.js" %}"></script>
+{% endblock %}

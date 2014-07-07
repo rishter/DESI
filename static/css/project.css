@@ -1,0 +1,26 @@
+.preview {
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.wrapper {
+    height: 100%;
+}
+
+.readmore {
+    display: none;
+}
+
+.box_link, .box_link:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.side_image {
+    margin-bottom: 20px;
+}
+
+.normal_image {
+    margin-bottom: 20px;
+}

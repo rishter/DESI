@@ -1,0 +1,7 @@
+{% extends "all/base.html" %}
+{% load staticfiles %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/home.css" %}" type="text/css" media="screen">
+{% endblock %}

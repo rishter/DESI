@@ -1,0 +1,8 @@
+{% extends "all/base.html" %}
+{% load staticfiles %}
+
+{% block stylesheets %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static "css/sidebar.css" %}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{% static "css/project.css" %}" type="text/css" media="screen">
+{% endblock %}

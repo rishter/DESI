@@ -1,0 +1,12 @@
+<div class="col-md-4">
+    <img src="{% if project.main_image %}{{ project.main_image.0.image.url }}{% endif %}" class="img-responsive img-thumbnail" />
+</div>
+<div class="col-md-8 wrapper">
+    <h4>{{ project.name_long }}</h4>
+    <p><strong>Location:</strong> {{ project.project_location }}</p>
+    {% if not project.owner_is_client %}
+    <p><strong>Owner:</strong> {{ project.project_owner }}
+    {% endif %}
+    <strong>Client {% if project.owner_is_client %} and Owner{% endif %}:</strong>  {{ project.project_client }}</p>
+    <p>{{ project.description }} <a class="readmore" href="{% url 'projects:detail' project.name_short %}">Read more</a></p>
+</div>

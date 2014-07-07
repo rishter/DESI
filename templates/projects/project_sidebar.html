@@ -1,0 +1,16 @@
+<nav class="col-md-3 sidebar-top">
+    {% if project_categories %}
+    <ul class="nav nav-stacked fixed" id="sidebar">
+        {% for category in project_categories %}
+        <li>
+            <a href="#Cat{{ category.id }}">{{ category.name }}</a>
+            <ul class="nav nav-stacked" >
+                {% for project in category.projects %}
+                <li><a href="#Proj{{ project.id }}">{{ project.name_long }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</nav>
