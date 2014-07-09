@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from projects.models import Project, ProjectImage
+from projects.models import Project, ProjectImage, ProjectService, ServiceCategory
 
 def index(request):
     carousel_projects = Project.objects.filter(use_in_carousel=True)
@@ -11,6 +11,15 @@ def index(request):
     carousel_range = range(len(carousel_projects))
 
     return render(request, 'all/index.html', {'carousel_projects': carousel_projects, 'carousel_range': carousel_range,})
+
+def services(request):
+	categories = ServiceCategory.objects.all()
+	services = ProjectService.objects.all()
+	for category in categories:
+		category.services = [service for service in services if service.category_id == category.id]
+
+	return render(request, 'all/services.html', {})
+
 
 
 def contact(request):

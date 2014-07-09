@@ -11,7 +11,7 @@
     {% if project_categories %}
         {% for category in project_categories %}
             <section id="Cat{{ category.id }}" class="group">
-                <h2>{{ category.name }}</h2>
+                <h3 class="page-header">{{ category.name }}</h3>
                 {% for project in category.projects %}
                 <div class="row subgroup preview" id="Proj{{ project.id }}">
                     {% include "projects/project_preview.html" with project=project %}

@@ -13,8 +13,8 @@
 }
 
 .box_link, .box_link:hover {
-    text-decoration: none;
-    color: black;
+    text-decoration: inherit;
+    color: inherit;
 }
 
 .side_image {
