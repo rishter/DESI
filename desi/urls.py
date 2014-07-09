@@ -12,4 +12,7 @@ urlpatterns = patterns('',
     url(r'^admin/doc', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^qualifications/', include('qualifications.urls', namespace="qualifications")),
+    url(r'^clients/', include('clients.urls', namespace="clients")),
+    url(r'^about/', 'all.views.about', name='about'),
+    url(r'^contact/', 'all.views.contact', name='contact'),
 )

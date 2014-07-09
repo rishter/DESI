@@ -1,5 +1,7 @@
 from django.db import models
 
+from clients.models import Client
+
 class ProjectCategory(models.Model):
     name = models.CharField(max_length=200, unique=True)
 
@@ -24,16 +26,6 @@ class ProjectService(models.Model):
 class ProjectOwner(models.Model):
     name = models.CharField(max_length=200)
     address = models.TextField(blank=True)
-
-    def __str__(self):
-        return self.name
-
-class Client(models.Model):
-    name = models.CharField(max_length=200)
-    name_short = models.CharField("name to use as url", max_length=20, unique=True)
-    address = models.TextField(blank=True)
-    logo = models.ImageField(upload_to='client_logos/', blank=True)
-    testimony = models.TextField(blank=True)
 
     def __str__(self):
         return self.name

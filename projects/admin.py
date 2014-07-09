@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from projects.models import Project, ProjectService, ProjectCategory, ProjectOwner, Client, ProjectImage, ProjectLocation, ServiceCategory
+from projects.models import Project, ProjectService, ProjectCategory, ProjectOwner, ProjectImage, ProjectLocation, ServiceCategory
 
 class ImageInline(admin.TabularInline):
     model = ProjectImage
@@ -37,12 +37,7 @@ class OwnerAdmin(admin.ModelAdmin):
     def get_model_perms(self, request):
         return {}
 
-class ClientAdmin(admin.ModelAdmin):
-    fieldsets = [
-        ('Client Info', {'fields': ['name', 'name_short', 'address', 'logo']}),
-        ('Desi Testimony', {'fields': ['testimony']}),
 
-    ]
 
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(ProjectService, ServiceAdmin)
@@ -50,4 +45,3 @@ admin.site.register(ServiceCategory, ServiceCategoryAdmin)
 admin.site.register(ProjectCategory)
 admin.site.register(ProjectLocation, LocationAdmin)
 admin.site.register(ProjectOwner, OwnerAdmin)
-admin.site.register(Client, ClientAdmin)

@@ -1,7 +1,23 @@
 {% extends "all/base.html" %}
 {% load staticfiles %}
 
+{% block title %}Home{% endblock %}
+
 {% block stylesheets %}
     {{ block.super }}
     <link rel="stylesheet" href="{% static "css/home.css" %}" type="text/css" media="screen">
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-md-9">
+			{% include "all/project_carousel.html" with carousel_projects=carousel_projects carousel_range=carousel_range %}
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+{% endblock %}
+
+{% block bodyjavascript %}
+    <script src="{% static "js/home.js" %}"></script>
 {% endblock %}
