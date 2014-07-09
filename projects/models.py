@@ -1,6 +1,7 @@
 from django.db import models
 
 from clients.models import Client
+from services.models import ProjectService
 
 class ProjectCategory(models.Model):
     name = models.CharField(max_length=200, unique=True)
@@ -8,20 +9,6 @@ class ProjectCategory(models.Model):
     def __str__(self):
         return self.name
 
-class ServiceCategory(models.Model):
-    name = models.CharField(max_length=200, unique=True)
-    description = models.TextField()
-    repr_image = models.ImageField(upload_to='misc_images/')
-
-    def __str__(self):
-        return self.name
-
-class ProjectService(models.Model):
-    name = models.CharField(max_length=200)
-    category = models.ForeignKey(ServiceCategory)
-
-    def __str__(self):
-        return self.name
 
 class ProjectOwner(models.Model):
     name = models.CharField(max_length=200)

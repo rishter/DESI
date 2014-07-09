@@ -10,7 +10,7 @@
         </div>  
         <ul class="nav navbar-nav">
             <li {% if "/" == request.path %} class="active" {% endif %}><a href="{% url "home" %}">Home</a></li>
-            <li {% if "about" in request.path %} class="active" {% endif %}><a href="{% url "about" %}">About Us</a></li>
+            <li {% if "about" in request.path %} class="active" {% endif %}><a href="{% url "about:index" %}">About Us</a></li>
             <li {% if "projects" in request.path %} class="active" {% endif %} ><a href="{% url "projects:index" %}">Projects</a></li>
             <li {% if "qualifications" in request.path %} class="active" {% endif %}><a href="{% url "qualifications:index" %}">Qualifications</a></li>
             <li><a href="">Services</a></li>

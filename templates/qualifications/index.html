@@ -7,3 +7,32 @@
     {{ block.super }}
     <link rel="stylesheet" href="{% static "css/qualifications.css" %}" type="text/css" media="screen">
 {% endblock %}
+
+{% block content %}
+	<div class="panel-group" id="accordion">
+		{% for category in qualification_categories %}
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ category.name_short }}">
+							{{ category.name }}
+						</a>
+					</h4>
+				</div>
+				<div id="collapse{{ category.name_short }}" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<ul class="qualification-list">
+							{% for qual in category.quals %}
+								<li>{% if qual.image %}<a href="{{ qual.image.url }}">{% endif %}{{ qual.name }}{% if qual.image %}</a>{% endif %}</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
+
+{% block bodyjavascript %}
+	<script src="{% static "js/qualifications.js" %}"></script>
+{% endblock %}
