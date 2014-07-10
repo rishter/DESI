@@ -14,5 +14,5 @@ urlpatterns = patterns('',
     url(r'^qualifications/', include('qualifications.urls', namespace="qualifications")),
     url(r'^clients/', include('clients.urls', namespace="clients")),
     url(r'^about/', include('about.urls', namespace="about")),
-    url(r'^contact/', 'all.views.contact', name='contact'),
+    url(r'^news/', include('news.urls', namespace='news')),
 )
