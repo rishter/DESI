@@ -4,8 +4,9 @@ from projects.models import Project, ProjectImage, ProjectService, ServiceCatego
 from news.models import Article
 
 from markdown import markdown
-from bs4 import BeautifulSoup as soup
-import re
+from datetime import date
+
+from utils.strings import strip_md
 
 def index(request):
     carousel_projects = Project.objects.filter(use_in_carousel=True)
@@ -15,9 +16,11 @@ def index(request):
 
     carousel_range = range(len(carousel_projects))
 
-    news = Article.objects.order_by('date').reverse()[:3]
+    start_date = date(2014, 7, 1)
+    now = date.today()
+    news = Article.objects.order_by('date').reverse().filter(date__range=(start_date,now))[:3]
     for article in news:
-    	article.text = plain(article.text)
+    	article.text = strip_md(article.text)
 
     return render(request, 'all/index.html', {'carousel_projects': carousel_projects, 'carousel_range': carousel_range, 'news': news})
 
@@ -36,7 +39,3 @@ def contact(request):
 
 def about(request):
 	return render(request, 'all/about.html', {})
-
-def plain(text):
-	md = markdown(text)
-	return ''.join(soup(md).find_all(text=True))

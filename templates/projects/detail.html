@@ -1,5 +1,6 @@
 {% extends "projects/project_base.html" %}
 {% load staticfiles %}
+{% load markdown_deux_tags %}
 
 {% block title %}{{ project.name_long }}{% endblock %}
 
@@ -35,7 +36,7 @@
     </div>
     <div class="col-md-9">
         <p><strong>Project Overview:</strong></p>
-        <p>{{ project.description|linebreaks }}</p>
+        <p>{{ project.description|markdown }}</p>
         {% if project.main_image %}
             <img src="{{ project.main_image.image.url }}" class="img-responsive normal_image main_image" />
         {% endif %}

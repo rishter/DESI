@@ -15,4 +15,5 @@ urlpatterns = patterns('',
     url(r'^clients/', include('clients.urls', namespace="clients")),
     url(r'^about/', include('about.urls', namespace="about")),
     url(r'^news/', include('news.urls', namespace='news')),
+    url(r'^careers/', include('careers.urls', namespace='careers')),
 )

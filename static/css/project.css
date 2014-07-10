@@ -12,7 +12,7 @@
     display: none;
 }
 
-.box_link, .box_link:hover {
+.box_link, .box_link:hover, .box_link.hover {
     text-decoration: inherit;
     color: inherit;
 }

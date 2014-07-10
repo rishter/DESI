@@ -11,6 +11,6 @@
     	<p><strong>Owner:</strong> {{ project.project_owner }}
     	{% endif %}
     	<strong>Client {% if project.owner_is_client %} and Owner{% endif %}:</strong>  {{ project.project_client }}</p>
-    	<p class="text-justify">{{ project.description }}<a class="readmore" href="{% url 'projects:detail' project.name_short %}">Read more</a></p>
+    	<p class="text-justify">{{ project.plain_desc }}<a class="readmore" href="{% url 'projects:detail' project.name_short %}">Read more</a></p>
     </a>
 </div>

@@ -5,12 +5,15 @@ from django.template import RequestContext, loader
 from projects.models import Project, ProjectCategory, ProjectImage
 from django.views import generic
 
+from utils.strings import strip_md
+
 def index(request):
     project_categories = ProjectCategory.objects.all()
     projects = Project.objects.all()
     images = ProjectImage.objects.all()
     for project in projects:
         project.main_image = [image for image in images if image.project_id == project.id and image.is_main_image]
+        project.plain_desc = strip_md(project.description)
     for category in project_categories:
         category.projects = [project for project in projects if project.category_id == category.id]
     return render(request, 'projects/index.html', { 'project_categories': project_categories })

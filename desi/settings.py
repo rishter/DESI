@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'about',
     'news',
     'markdown_deux',
+    'careers',
 )
 
 MIDDLEWARE_CLASSES = (

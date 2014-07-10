@@ -33,3 +33,7 @@ body {
 .contact-item {
 	margin-bottom: 5px;
 }
+
+.nav-link:last-child {
+	margin-right: 30px;
+}
