@@ -10,10 +10,11 @@
 
 {% block content %}
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-8 text-justify col-xs-12">
+			<p>Distinct Engineering Solutions, Inc is an engineering consulting firm with a mission to provide solutions that are tailored to meet clients’ needs, project specifications and budget, bringing synergy to design and construction projects. Our vision is to establish a sound relationship with our clients through providing responsive and cost effective solutions for projects we are involved in and the communities we serve.</p>
 			{% include "all/project_carousel.html" with carousel_projects=carousel_projects carousel_range=carousel_range %}
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4 col-xs-12">
 			{% include "all/news.html" with news=news %}
 		</div>
 	</div>

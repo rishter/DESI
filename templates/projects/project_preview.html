@@ -1,9 +1,9 @@
-<div class="col-md-4">
+<div class="col-md-4 col-sm-4 col-xs-6">
 	<a href="{% url 'projects:detail' project.name_short %}" class="thumbnail">
     	<img src="{% if project.main_image %}{{ project.main_image.0.image.url }}{% endif %}" class="img-responsive" />
 	</a>
 </div>
-<div class="col-md-8 wrapper">
+<div class="col-md-8 col-sm-8 col-xs-6 wrapper">
 	<a href="{% url 'projects:detail' project.name_short %}" class="box_link">
     	<h4>{{ project.name_long }}</h4>
     	<p><strong>Location:</strong> {{ project.project_location }}</p>

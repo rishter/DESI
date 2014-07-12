@@ -18,9 +18,6 @@ def index(request):
         category.projects = [project for project in projects if project.category_id == category.id]
     return render(request, 'projects/index.html', { 'project_categories': project_categories })
 
-def clients(request, client_name_short):
-    pass
-
 def detail(request, proj_name_short):
     project = get_object_or_404(Project, name_short=proj_name_short)
     images = ProjectImage.objects.all()

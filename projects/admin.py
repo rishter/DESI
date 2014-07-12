@@ -1,9 +1,13 @@
 from django.contrib import admin
 
-from projects.models import Project, ProjectService, ProjectCategory, ProjectOwner, ProjectImage, ProjectLocation, ServiceCategory
+from projects.models import Project, ProjectService, ProjectCategory, ProjectOwner, ProjectImage, ProjectLocation, ServiceCategory, ServiceImage
 
 class ImageInline(admin.TabularInline):
     model = ProjectImage
+    extra = 2
+
+class ServiceImageInline(admin.TabularInline):
+    model = ServiceImage
     extra = 2
 
 
@@ -17,13 +21,17 @@ class ProjectAdmin(admin.ModelAdmin):
     search_fields = ['desi_id', 'name_long']
     list_filter = ['project_location']
 
-class ServiceAdmin(admin.ModelAdmin):
-    def get_model_perms(self, request):
-        return {}
-
 class ServiceCategoryAdmin(admin.ModelAdmin):
-    def get_model_perms(self, request):
-        return {}
+    fieldsets = [
+        ('Information', {'fields': ['name', 'subheading', 'description']})
+    ]
+    inlines = [ServiceImageInline]
+    list_display = ('name', 'subheading')
+    search_fields = ['name', 'subheading', 'description']
+
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = ('name', 'category')
+    list_filter = ['category']
 
 class CategoryAdmin(admin.ModelAdmin):
     def get_model_perms(self, request):

@@ -2,13 +2,21 @@ from django.db import models
 
 from clients.models import Client
 
+
 class ServiceCategory(models.Model):
     name = models.CharField(max_length=200, unique=True)
+    subheading = models.CharField(max_length=200, blank=True)
     description = models.TextField()
-    repr_image = models.ImageField(upload_to='misc_images/')
 
     def __str__(self):
         return self.name
+
+class ServiceImage(models.Model):
+    image = models.ImageField(upload_to='service_images/')
+    category = models.ForeignKey(ServiceCategory)
+
+    def __str__(self):
+        return "image in " + str(self.category)
 
 class ProjectService(models.Model):
     name = models.CharField(max_length=200)

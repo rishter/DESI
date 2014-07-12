@@ -6,35 +6,12 @@
 
 {% block content %}
 <div class="row page-header">
-    <h2>{{project.name_long}} <small>{{ project.project_location }}</small></h2>
+    <div class="col-md-12">
+        <h2>{{project.name_long}} <small>{{ project.project_location }}</small></h2>
+    </div>
 </div>
 <div class="row">
-    <div class="col-md-3">
-        <p><strong>Services:</strong></p>
-        <ul class="list-unstyled">
-            {% for service in project.services.all %}
-            <li>{{ service.name }}</li>
-            {% endfor %}
-        </ul>
-        {% for image in side_images %}
-            <img src="{{ image.image.url }}" class="img-responsive side_image" />
-        {% endfor %}
-        {% if not project.owner_is_client %}
-        {% with owner=project.project_owner %}
-        <p><strong>Owner:</strong></p>
-        <address>
-            <p>{{ owner.name }}<br />{{ owner.address|linebreaksbr }}</p>
-        </address>
-        {% endwith %}
-        {% endif %}
-        {% with client=project.project_client %}
-        <p><strong>Client {% if project.owner_is_client %} and Owner{% endif %}:</strong></p>
-        <address>
-            <p>{{ client.name }}<br />{{ client.address|linebreaksbr }}</p>
-        </address>
-        {% endwith %}
-    </div>
-    <div class="col-md-9">
+    <div class="col-md-9 col-md-push-3 text-justify">
         <p><strong>Project Overview:</strong></p>
         <p>{{ project.description|markdown }}</p>
         {% if project.main_image %}
@@ -43,6 +20,31 @@
         {% for image in normal_images %}
             <img src="{{ image.image.url }}" class="img-responsive normal_image" />
         {% endfor %}
+    </div>
+    <div class="col-md-3 col-md-pull-9">
+        <p><strong>Services:</strong></p>
+        <ul class="list-unstyled">
+            {% for service in project.services.all %}
+                <li>{{ service.name }}</li>
+            {% endfor %}
+        </ul>
+        {% for image in side_images %}
+            <img src="{{ image.image.url }}" class="img-responsive side_image" />
+        {% endfor %}
+        {% if not project.owner_is_client %}
+            {% with owner=project.project_owner %}
+                <p><strong>Owner:</strong></p>
+                <address>
+                    <p>{{ owner.name }}<br />{{ owner.address|linebreaksbr }}</p>
+                </address>
+            {% endwith %}
+        {% endif %}
+        {% with client=project.project_client %}
+            <p><strong>Client {% if project.owner_is_client %} and Owner{% endif %}:</strong></p>
+            <address>
+                <p>{{ client.name }}<br />{{ client.address|linebreaksbr }}</p>
+            </address>
+        {% endwith %}
     </div>
 </div>
 
